@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personvern · KPB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EC; --ink:#241F1A; --sub:#6B655C;
+    --accent:#B23A2C; --line:#E4DCCF; --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+    padding:0 20px;
+  }
+  .wrap{max-width:720px; margin:0 auto; padding:64px 0 96px}
+  header.top{display:flex; align-items:center; justify-content:space-between; margin-bottom:52px}
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .mark{
+    font-family:'Playfair Display',Georgia,serif; font-weight:700;
+    font-size:26px; color:var(--accent); letter-spacing:.5px;
+  }
+  .brand .tag{font-size:12px; color:var(--sub); letter-spacing:.14em; text-transform:uppercase}
+  .lang{display:flex; gap:2px; border:1px solid var(--line); border-radius:999px; padding:3px; background:var(--card)}
+  .lang button{
+    font-family:inherit; font-size:12.5px; font-weight:600; letter-spacing:.06em;
+    border:0; background:transparent; color:var(--sub); cursor:pointer;
+    padding:5px 13px; border-radius:999px; transition:.18s;
+  }
+  .lang button.on{background:var(--accent); color:#fff}
+  .eyebrow{font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:14px}
+  h1{font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:clamp(32px,6vw,46px); line-height:1.1; letter-spacing:-.01em; margin-bottom:16px}
+  .updated{font-size:13.5px; color:var(--sub); margin-bottom:40px}
+  .lead{font-size:18px; color:var(--ink); background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:12px; padding:20px 22px; margin-bottom:44px}
+  h2{font-family:'Playfair Display',Georgia,serif; font-weight:500; font-size:22px; margin:38px 0 12px; letter-spacing:-.005em}
+  p{margin-bottom:14px; color:#332E28}
+  ul{margin:6px 0 16px; padding-left:22px}
+  li{margin-bottom:8px; color:#332E28}
+  strong{font-weight:600}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(178,58,44,.3)}
+  a:hover{border-bottom-color:var(--accent)}
+  .divider{height:1px; background:var(--line); margin:46px 0}
+  footer{font-size:13.5px; color:var(--sub); text-align:center; margin-top:8px}
+  .lang-block[hidden]{display:none}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+  @media (max-width:560px){
+    .wrap{padding:40px 0 72px}
+    header.top{margin-bottom:38px}
+    .lead{font-size:16.5px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark">KPB</span>
+      <span class="tag">Kost per bruk</span>
+    </div>
+    <div class="lang" role="group" aria-label="Språk / Language">
+      <button id="btn-nb" class="on" onclick="setLang('nb')">NO</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </header>
+
+  <!-- ============ NORSK ============ -->
+  <section class="lang-block" id="nb">
+    <div class="eyebrow">Personvern</div>
+    <h1>Personvernerklæring</h1>
+    <p class="updated">Sist oppdatert 30. juli 2026</p>
+
+    <p class="lead">KPB lagrer alt du legger inn <strong>lokalt på enheten din</strong>. Appen samler ikke inn, lagrer ikke og deler ikke personopplysninger. Det finnes ingen konto, ingen server og ingen sporing.</p>
+
+    <h2>Hvem står bak</h2>
+    <p>KPB utvikles og driftes av Marie Kyrkjebø som privatperson. Har du spørsmål om personvern, kan du kontakte <a href="mailto:marie@kyrkjeboe.com">marie@kyrkjeboe.com</a>.</p>
+
+    <h2>Hvilke opplysninger appen håndterer</h2>
+    <p>Du kan legge inn opplysninger om klærne dine – navn, merke, kategori, pris, materiale, farge og hvor ofte du bruker dem. Disse dataene lagres kun på enheten din, i appens eget lokale lager. De forlater aldri telefonen din og sendes ikke til oss eller noen andre.</p>
+
+    <h2>Ingen innsamling og ingen sporing</h2>
+    <ul>
+      <li>Appen bruker ingen analyseverktøy og samler ingen bruksstatistikk.</li>
+      <li>Det er ingen annonser og ingen sporing på tvers av apper eller nettsteder.</li>
+      <li>Ingen tredjeparter mottar data fra appen.</li>
+      <li>Ingen konto, e-post eller innlogging kreves for å bruke KPB.</li>
+    </ul>
+
+    <h2>Import og eksport av CSV</h2>
+    <p>Velger du å importere eller eksportere data som CSV-fil, skjer dette lokalt på enheten din. Filene håndteres av deg, og innholdet behandles ikke av oss.</p>
+
+    <h2>Sletting av data</h2>
+    <p>Fordi alt ligger lokalt, har du full kontroll. Du kan når som helst slette enkeltplagg i appen, tømme alle data via innstillingene, eller slette hele appen – da fjernes all data fra enheten.</p>
+
+    <h2>Barn</h2>
+    <p>Appen er ikke rettet mot barn og samler ingen opplysninger fra noen, uavhengig av alder.</p>
+
+    <h2>Dine rettigheter</h2>
+    <p>Personvernregelverket (GDPR) gir deg rett til innsyn i, retting av og sletting av personopplysninger. Siden KPB ikke samler inn eller oppbevarer opplysningene dine noe sted utenfor din egen enhet, har vi ingenting å utlevere eller slette – du har allerede full råderett over dataene lokalt.</p>
+
+    <h2>Endringer</h2>
+    <p>Hvis en fremtidig versjon av appen får nye funksjoner som endrer dette – for eksempel valgfri synkronisering via din egen private iCloud – vil denne erklæringen oppdateres før funksjonen tas i bruk. Eventuell iCloud-lagring skjer i din egen Apple-konto via Apple, ikke hos oss.</p>
+
+    <h2>Kontakt</h2>
+    <p>Spørsmål om personvern rettes til <a href="mailto:marie@kyrkjeboe.com">marie@kyrkjeboe.com</a>.</p>
+
+    <div class="divider"></div>
+    <footer>KPB · Kost per bruk — © 2026 Marie Kyrkjebø</footer>
+  </section>
+
+  <!-- ============ ENGLISH ============ -->
+  <section class="lang-block" id="en" hidden>
+    <div class="eyebrow">Privacy</div>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated 30 July 2026</p>
+
+    <p class="lead">KPB stores everything you enter <strong>locally on your device</strong>. The app does not collect, store or share personal data. There is no account, no server and no tracking.</p>
+
+    <h2>Who is responsible</h2>
+    <p>KPB is developed and operated by Marie Kyrkjebø as a private individual. For any privacy questions, contact <a href="mailto:marie@kyrkjeboe.com">marie@kyrkjeboe.com</a>.</p>
+
+    <h2>What information the app handles</h2>
+    <p>You can enter details about your clothes — name, brand, category, price, material, colour and how often you wear them. This data is stored only on your device, in the app's own local storage. It never leaves your phone and is never sent to us or anyone else.</p>
+
+    <h2>No collection and no tracking</h2>
+    <ul>
+      <li>The app uses no analytics and collects no usage statistics.</li>
+      <li>There are no ads and no tracking across apps or websites.</li>
+      <li>No third party receives data from the app.</li>
+      <li>No account, email or sign-in is required to use KPB.</li>
+    </ul>
+
+    <h2>CSV import and export</h2>
+    <p>If you choose to import or export data as a CSV file, this happens locally on your device. The files are handled by you, and their contents are not processed by us.</p>
+
+    <h2>Deleting your data</h2>
+    <p>Because everything is local, you are fully in control. You can delete individual items in the app at any time, clear all data from the settings, or delete the app entirely — which removes all data from your device.</p>
+
+    <h2>Children</h2>
+    <p>The app is not directed at children and collects no information from anyone, regardless of age.</p>
+
+    <h2>Your rights</h2>
+    <p>Data protection law (GDPR) gives you the right to access, correct and delete personal data. Since KPB does not collect or hold your data anywhere outside your own device, there is nothing for us to disclose or erase — you already have full control over the data locally.</p>
+
+    <h2>Changes</h2>
+    <p>If a future version of the app introduces features that change this — for example optional synchronisation via your own private iCloud — this policy will be updated before that feature is enabled. Any iCloud storage would take place in your own Apple account via Apple, not with us.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy can be sent to <a href="mailto:marie@kyrkjeboe.com">marie@kyrkjeboe.com</a>.</p>
+
+    <div class="divider"></div>
+    <footer>KPB · Cost per wear — © 2026 Marie Kyrkjebø</footer>
+  </section>
+</div>
+
+<script>
+  function setLang(l){
+    document.getElementById('nb').hidden = (l!=='nb');
+    document.getElementById('en').hidden = (l!=='en');
+    document.getElementById('btn-nb').classList.toggle('on', l==='nb');
+    document.getElementById('btn-en').classList.toggle('on', l==='en');
+    document.documentElement.lang = l;
+  }
+</script>
+</body>
+</html>

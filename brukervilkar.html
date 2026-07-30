@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brukervilkår · KPB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EC; --ink:#241F1A; --sub:#6B655C;
+    --accent:#B23A2C; --line:#E4DCCF; --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased; padding:0 20px;
+  }
+  .wrap{max-width:720px; margin:0 auto; padding:64px 0 96px}
+  header.top{display:flex; align-items:center; justify-content:space-between; margin-bottom:52px}
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .mark{font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:26px; color:var(--accent); letter-spacing:.5px}
+  .brand .tag{font-size:12px; color:var(--sub); letter-spacing:.14em; text-transform:uppercase}
+  .lang{display:flex; gap:2px; border:1px solid var(--line); border-radius:999px; padding:3px; background:var(--card)}
+  .lang button{font-family:inherit; font-size:12.5px; font-weight:600; letter-spacing:.06em; border:0; background:transparent; color:var(--sub); cursor:pointer; padding:5px 13px; border-radius:999px; transition:.18s}
+  .lang button.on{background:var(--accent); color:#fff}
+  .eyebrow{font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:14px}
+  h1{font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:clamp(32px,6vw,46px); line-height:1.1; letter-spacing:-.01em; margin-bottom:16px}
+  .updated{font-size:13.5px; color:var(--sub); margin-bottom:40px}
+  .lead{font-size:18px; color:var(--ink); background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:12px; padding:20px 22px; margin-bottom:44px}
+  h2{font-family:'Playfair Display',Georgia,serif; font-weight:500; font-size:22px; margin:38px 0 12px; letter-spacing:-.005em}
+  .num{color:var(--accent); font-size:15px; font-weight:600; margin-right:8px}
+  p{margin-bottom:14px; color:#332E28}
+  ul{margin:6px 0 16px; padding-left:22px}
+  li{margin-bottom:8px; color:#332E28}
+  strong{font-weight:600}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(178,58,44,.3)}
+  a:hover{border-bottom-color:var(--accent)}
+  .divider{height:1px; background:var(--line); margin:46px 0}
+  footer{font-size:13.5px; color:var(--sub); text-align:center; margin-top:8px}
+  .lang-block[hidden]{display:none}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+  @media (max-width:560px){
+    .wrap{padding:40px 0 72px}
+    header.top{margin-bottom:38px}
+    .lead{font-size:16.5px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark">KPB</span>
+      <span class="tag">Kost per bruk</span>
+    </div>
+    <div class="lang" role="group" aria-label="Språk / Language">
+      <button id="btn-nb" class="on" onclick="setLang('nb')">NO</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </header>
+
+  <!-- ============ NORSK ============ -->
+  <section class="lang-block" id="nb">
+    <div class="eyebrow">Vilkår</div>
+    <h1>Brukervilkår</h1>
+    <p class="updated">Sist oppdatert 30. juli 2026</p>
+
+    <p class="lead">Ved å bruke KPB godtar du vilkårene under. Appen hjelper deg å holde oversikt over garderoben din og regne ut kost per bruk. All data ligger lokalt på din egen enhet.</p>
+
+    <h2><span class="num">1</span>Aksept av vilkårene</h2>
+    <p>Når du laster ned og bruker KPB, aksepterer du disse vilkårene. Apples standard lisensavtale for apper (Licensed Application End User License Agreement) gjelder også. Er du uenig i vilkårene, bør du ikke bruke appen.</p>
+
+    <h2><span class="num">2</span>Lisens til å bruke appen</h2>
+    <p>Du får en personlig, ikke-eksklusiv rett til å bruke KPB på enheter du eier eller kontrollerer, til privat bruk. Du kan ikke selge, leie ut, dekompilere eller forsøke å hente ut kildekoden fra appen.</p>
+
+    <h2><span class="num">3</span>Dine data og ditt ansvar</h2>
+    <p>Du er ansvarlig for opplysningene du legger inn, og for at de er riktige. Fordi KPB lagrer alt lokalt på enheten din, anbefaler vi at du selv tar vare på dataene dine. Sletter du appen eller mister enheten, kan dataene gå tapt. KPB er ikke ansvarlig for tap av data.</p>
+
+    <h2><span class="num">4</span>Ikke økonomisk rådgivning</h2>
+    <p>Tallene appen viser – som kost per bruk – er kun ment som en personlig oversikt og til informasjon. De er ikke økonomisk, regnskapsmessig eller juridisk rådgivning, og bør ikke brukes som eneste grunnlag for økonomiske beslutninger.</p>
+
+    <h2><span class="num">5</span>Levert «som den er»</h2>
+    <p>KPB leveres «som den er» og «slik den er tilgjengelig», uten garantier av noe slag. Vi kan ikke garantere at appen alltid er feilfri eller tilgjengelig.</p>
+
+    <h2><span class="num">6</span>Ansvarsbegrensning</h2>
+    <p>Så langt gjeldende lov tillater, er Marie Kyrkjebø ikke ansvarlig for indirekte tap, følgetap eller tap av data som følge av bruk av appen. Ingenting i disse vilkårene begrenser ansvar som ikke kan begrenses etter norsk lov.</p>
+
+    <h2><span class="num">7</span>Immaterielle rettigheter</h2>
+    <p>Appen, navnet KPB, design og innhold eies av Marie Kyrkjebø. Dataene du selv legger inn, er dine.</p>
+
+    <h2><span class="num">8</span>Endringer i vilkårene</h2>
+    <p>Vilkårene kan bli oppdatert. Vesentlige endringer vil fremgå av denne siden med ny «sist oppdatert»-dato. Fortsatt bruk av appen etter en endring regnes som aksept av de oppdaterte vilkårene.</p>
+
+    <h2><span class="num">9</span>Lovvalg</h2>
+    <p>Vilkårene reguleres av norsk rett. Eventuelle tvister hører inn under norske domstoler.</p>
+
+    <h2><span class="num">10</span>Kontakt</h2>
+    <p>Spørsmål om vilkårene rettes til <a href="mailto:marie@kyrkjeboe.com">marie@kyrkjeboe.com</a>.</p>
+
+    <div class="divider"></div>
+    <footer>KPB · Kost per bruk — © 2026 Marie Kyrkjebø</footer>
+  </section>
+
+  <!-- ============ ENGLISH ============ -->
+  <section class="lang-block" id="en" hidden>
+    <div class="eyebrow">Terms</div>
+    <h1>Terms of Use</h1>
+    <p class="updated">Last updated 30 July 2026</p>
+
+    <p class="lead">By using KPB you accept the terms below. The app helps you keep track of your wardrobe and calculate cost per wear. All data is stored locally on your own device.</p>
+
+    <h2><span class="num">1</span>Acceptance of the terms</h2>
+    <p>When you download and use KPB, you accept these terms. Apple's standard Licensed Application End User License Agreement also applies. If you do not agree to the terms, you should not use the app.</p>
+
+    <h2><span class="num">2</span>Licence to use the app</h2>
+    <p>You are granted a personal, non-exclusive right to use KPB on devices you own or control, for personal use. You may not sell, rent out, decompile or attempt to extract the source code from the app.</p>
+
+    <h2><span class="num">3</span>Your data and your responsibility</h2>
+    <p>You are responsible for the information you enter and for its accuracy. Because KPB stores everything locally on your device, we recommend keeping your own backup of your data. If you delete the app or lose the device, the data may be lost. KPB is not liable for loss of data.</p>
+
+    <h2><span class="num">4</span>Not financial advice</h2>
+    <p>The figures the app shows — such as cost per wear — are intended only as a personal overview and for information. They are not financial, accounting or legal advice, and should not be used as the sole basis for financial decisions.</p>
+
+    <h2><span class="num">5</span>Provided "as is"</h2>
+    <p>KPB is provided "as is" and "as available", without warranties of any kind. We cannot guarantee that the app is always error-free or available.</p>
+
+    <h2><span class="num">6</span>Limitation of liability</h2>
+    <p>To the extent permitted by applicable law, Marie Kyrkjebø is not liable for indirect losses, consequential losses or loss of data arising from use of the app. Nothing in these terms limits liability that cannot be limited under Norwegian law.</p>
+
+    <h2><span class="num">7</span>Intellectual property</h2>
+    <p>The app, the name KPB, its design and content are owned by Marie Kyrkjebø. The data you enter yourself is yours.</p>
+
+    <h2><span class="num">8</span>Changes to the terms</h2>
+    <p>These terms may be updated. Material changes will appear on this page with a new "last updated" date. Continued use of the app after a change is considered acceptance of the updated terms.</p>
+
+    <h2><span class="num">9</span>Governing law</h2>
+    <p>These terms are governed by Norwegian law. Any disputes fall under the jurisdiction of the Norwegian courts.</p>
+
+    <h2><span class="num">10</span>Contact</h2>
+    <p>Questions about the terms can be sent to <a href="mailto:marie@kyrkjeboe.com">marie@kyrkjeboe.com</a>.</p>
+
+    <div class="divider"></div>
+    <footer>KPB · Cost per wear — © 2026 Marie Kyrkjebø</footer>
+  </section>
+</div>
+
+<script>
+  function setLang(l){
+    document.getElementById('nb').hidden = (l!=='nb');
+    document.getElementById('en').hidden = (l!=='en');
+    document.getElementById('btn-nb').classList.toggle('on', l==='nb');
+    document.getElementById('btn-en').classList.toggle('on', l==='en');
+    document.documentElement.lang = l;
+  }
+</script>
+</body>
+</html>
