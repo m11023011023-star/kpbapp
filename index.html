@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KPB · Kost per bruk</title>
+<meta name="description" content="KPB – hold oversikt over garderoben og se hva klærne dine egentlig koster per bruk. Alt lagres lokalt på enheten din.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EC; --ink:#241F1A; --sub:#6B655C;
+    --accent:#B23A2C; --accent-2:#D9694F; --line:#E4DCCF; --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased; padding:0 20px;
+  }
+  .wrap{max-width:940px; margin:0 auto}
+
+  /* header */
+  header.top{display:flex; align-items:center; justify-content:space-between; padding:28px 0}
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .mark{font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:26px; color:var(--accent); letter-spacing:.5px}
+  .brand .tag{font-size:12px; color:var(--sub); letter-spacing:.14em; text-transform:uppercase}
+  .lang{display:flex; gap:2px; border:1px solid var(--line); border-radius:999px; padding:3px; background:var(--card)}
+  .lang button{font-family:inherit; font-size:12.5px; font-weight:600; letter-spacing:.06em; border:0; background:transparent; color:var(--sub); cursor:pointer; padding:5px 13px; border-radius:999px; transition:.18s}
+  .lang button.on{background:var(--accent); color:#fff}
+
+  /* hero */
+  .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; padding:56px 0 72px}
+  .eyebrow{font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:20px}
+  h1{font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:clamp(38px,5.4vw,60px); line-height:1.04; letter-spacing:-.015em; margin-bottom:22px}
+  .hero p.sub{font-size:18px; color:#4A443C; max-width:34ch; margin-bottom:30px}
+  .soon{display:inline-flex; align-items:center; gap:9px; font-size:13.5px; font-weight:500; color:var(--sub); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:9px 16px}
+  .soon .dot{width:7px; height:7px; border-radius:50%; background:var(--accent-2)}
+
+  /* signature: cost-per-wear card */
+  .cpw-card{background:var(--card); border:1px solid var(--line); border-radius:20px; padding:28px; box-shadow:0 20px 50px -30px rgba(60,40,30,.45)}
+  .cpw-card .item{display:flex; align-items:center; gap:13px; margin-bottom:22px}
+  .swatch{width:44px; height:44px; border-radius:11px; background:linear-gradient(135deg,#3a3f4a,#20242c); flex:none}
+  .cpw-card .name{font-weight:600; font-size:15.5px}
+  .cpw-card .price{font-size:13px; color:var(--sub)}
+  .cpw-big{font-family:'Playfair Display',Georgia,serif; font-weight:700; line-height:1; letter-spacing:-.02em; color:var(--accent); font-size:64px}
+  .cpw-big .kr{font-size:26px; color:var(--ink); font-weight:600; font-family:'Inter',sans-serif; margin-left:4px}
+  .cpw-label{font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--sub); margin:8px 0 20px}
+  .wear-row{display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:16px}
+  .wear-row .n{font-size:13.5px; color:#4A443C}
+  .wear-row strong{color:var(--accent)}
+
+  /* features */
+  .features{display:grid; grid-template-columns:repeat(3,1fr); gap:30px; padding:12px 0 76px; border-top:1px solid var(--line)}
+  .features{margin-top:8px}
+  .feat h3{font-family:'Playfair Display',Georgia,serif; font-weight:600; font-size:20px; margin:26px 0 8px}
+  .feat p{font-size:15px; color:#4A443C}
+  .feat .k{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:600}
+
+  /* footer */
+  footer.foot{border-top:1px solid var(--line); padding:34px 0 48px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px}
+  .foot .links{display:flex; gap:22px; flex-wrap:wrap}
+  .foot a{color:#4A443C; text-decoration:none; font-size:14.5px; border-bottom:1px solid transparent; transition:.15s}
+  .foot a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+  .foot .copy{font-size:13px; color:var(--sub)}
+
+  .lang-block[hidden]{display:none}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:5px}
+
+  @media (max-width:780px){
+    .hero{grid-template-columns:1fr; gap:40px; padding:34px 0 52px}
+    .features{grid-template-columns:1fr; gap:8px}
+    .feat{border-top:1px solid var(--line); padding-top:22px}
+    .feat:first-child{border-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="mark">KPB</span><span class="tag">Kost per bruk</span></div>
+    <div class="lang" role="group" aria-label="Språk / Language">
+      <button id="btn-nb" class="on" onclick="setLang('nb')">NO</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </header>
+
+  <!-- ============ NORSK ============ -->
+  <div class="lang-block" id="nb">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Garderobe · kost per bruk</div>
+        <h1>Vit hva klærne&nbsp;dine egentlig&nbsp;koster.</h1>
+        <p class="sub">Logg det du har på deg, så regner KPB ut prisen per gang du bruker hvert plagg. Jo mer du bruker det, jo billigere blir det.</p>
+        <div class="soon"><span class="dot"></span>Snart på App Store</div>
+      </div>
+      <div class="cpw-card" aria-hidden="true">
+        <div class="item">
+          <div class="swatch"></div>
+          <div><div class="name">Ullkåpe</div><div class="price">2 400 kr · brukt 71 ganger</div></div>
+        </div>
+        <div class="cpw-big"><span id="cpw-nb">34</span><span class="kr">kr</span></div>
+        <div class="cpw-label">kost per bruk</div>
+        <div class="wear-row"><span class="n">Ny: <strong>2 400 kr</strong> per bruk</span><span class="n">Nå: <strong>34 kr</strong></span></div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feat"><span class="k">Logg</span><h3>Ett trykk om dagen</h3><p>Før opp dagens antrekk på sekunder. KPB bygger historikken for deg.</p></div>
+      <div class="feat"><span class="k">Innsikt</span><h3>Se hva som lønner seg</h3><p>Rapporter viser hvilke plagg som er verdt pengene, og hvilke som bare henger.</p></div>
+      <div class="feat"><span class="k">Privat</span><h3>Alt blir på telefonen</h3><p>Ingen konto, ingen sky, ingen sporing. Dataene dine forlater aldri enheten.</p></div>
+    </section>
+
+    <footer class="foot">
+      <div class="links">
+        <a href="personvern.html">Personvern</a>
+        <a href="brukervilkar.html">Brukervilkår</a>
+        <a href="mailto:m11023011023@gmail.com">Kontakt</a>
+      </div>
+      <div class="copy">© 2026 Marie Kyrkjebø</div>
+    </footer>
+  </div>
+
+  <!-- ============ ENGLISH ============ -->
+  <div class="lang-block" id="en" hidden>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Wardrobe · cost per wear</div>
+        <h1>Know what your clothes really&nbsp;cost.</h1>
+        <p class="sub">Log what you wear, and KPB works out the price of each item every time you use it. The more you wear it, the cheaper it gets.</p>
+        <div class="soon"><span class="dot"></span>Coming soon to the App Store</div>
+      </div>
+      <div class="cpw-card" aria-hidden="true">
+        <div class="item">
+          <div class="swatch"></div>
+          <div><div class="name">Wool coat</div><div class="price">NOK 2,400 · worn 71 times</div></div>
+        </div>
+        <div class="cpw-big"><span id="cpw-en">34</span><span class="kr">kr</span></div>
+        <div class="cpw-label">cost per wear</div>
+        <div class="wear-row"><span class="n">New: <strong>2,400 kr</strong> per wear</span><span class="n">Now: <strong>34 kr</strong></span></div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feat"><span class="k">Log</span><h3>One tap a day</h3><p>Note today's outfit in seconds. KPB builds the history for you.</p></div>
+      <div class="feat"><span class="k">Insight</span><h3>See what pays off</h3><p>Reports show which pieces are worth the money — and which just hang there.</p></div>
+      <div class="feat"><span class="k">Private</span><h3>It all stays on your phone</h3><p>No account, no cloud, no tracking. Your data never leaves the device.</p></div>
+    </section>
+
+    <footer class="foot">
+      <div class="links">
+        <a href="personvern.html">Privacy</a>
+        <a href="brukervilkar.html">Terms</a>
+        <a href="mailto:m11023011023@gmail.com">Contact</a>
+      </div>
+      <div class="copy">© 2026 Marie Kyrkjebø</div>
+    </footer>
+  </div>
+</div>
+
+<script>
+  function setLang(l){
+    document.getElementById('nb').hidden = (l!=='nb');
+    document.getElementById('en').hidden = (l!=='en');
+    document.getElementById('btn-nb').classList.toggle('on', l==='nb');
+    document.getElementById('btn-en').classList.toggle('on', l==='en');
+    document.documentElement.lang = l;
+    countdown();
+  }
+  // Signaturen: kost per bruk teller ned fra full pris til 34 kr
+  function countdown(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const el = document.querySelector('.lang-block:not([hidden]) .cpw-big span:first-child');
+    if(!el) return;
+    const target = 34; let val = 2400;
+    el.textContent = val;
+    const steps = 34, dec = (val-target)/steps; let i=0;
+    const timer = setInterval(()=>{
+      i++; val = Math.round(2400 - dec*i);
+      if(i>=steps){ val=target; clearInterval(timer); }
+      el.textContent = val;
+    }, 26);
+  }
+  window.addEventListener('load', countdown);
+</script>
+</body>
+</html>
