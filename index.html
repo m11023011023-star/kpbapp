@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KPB · Kost per bruk</title>
-<meta name="description" content="KPB – hold oversikt over garderoben og se hva klærne dine egentlig koster per bruk. Alt lagres lokalt på enheten din.">
+<meta name="description" content="KPB – hold oversikt over garderoben og se hva klærne dine egentlig koster per bruk. Dataene dine ligger på enheten din og i din egen private iCloud.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -36,8 +36,9 @@
   .eyebrow{font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:20px}
   h1{font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:clamp(38px,5.4vw,60px); line-height:1.04; letter-spacing:-.015em; margin-bottom:22px}
   .hero p.sub{font-size:18px; color:#4A443C; max-width:34ch; margin-bottom:30px}
-  .soon{display:inline-flex; align-items:center; gap:9px; font-size:13.5px; font-weight:500; color:var(--sub); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:9px 16px}
-  .soon .dot{width:7px; height:7px; border-radius:50%; background:var(--accent-2)}
+  .cta{display:inline-flex; align-items:center; font-size:15px; font-weight:600; color:#fff; text-decoration:none; background:linear-gradient(135deg,#EF4A22,#F05983); border-radius:999px; padding:13px 26px; box-shadow:0 12px 26px -14px rgba(240,89,131,.95); transition:.18s}
+  .cta:hover{transform:translateY(-1px); box-shadow:0 16px 30px -14px rgba(240,89,131,1)}
+  .cta-note{font-size:13.5px; color:var(--sub); margin-top:14px}
 
   /* signature: cost-per-wear card */
   .cpw-card{background:var(--card); border:1px solid var(--line); border-radius:20px; padding:28px; box-shadow:0 20px 50px -30px rgba(60,40,30,.45)}
@@ -96,7 +97,8 @@
         <div class="eyebrow">Garderobe · kost per bruk</div>
         <h1>Vit hva klærne&nbsp;dine egentlig&nbsp;koster.</h1>
         <p class="sub">Logg det du har på deg, så regner KPB ut prisen per gang du bruker hvert plagg. Jo mer du bruker det, jo billigere blir det.</p>
-        <div class="soon"><span class="dot"></span>Snart på App Store</div>
+        <a class="cta" href="https://apps.apple.com/no/app/kpb/id6796228322?l=nb">Last ned i App Store</a>
+        <p class="cta-note">Gratis å laste ned · KPB Pro er et engangskjøp, ikke abonnement</p>
       </div>
       <div class="cpw-card" aria-hidden="true">
         <div class="item">
@@ -112,7 +114,7 @@
     <section class="features">
       <div class="feat"><span class="k">Logg</span><h3>Ett trykk om dagen</h3><p>Før opp dagens antrekk på sekunder. KPB bygger historikken for deg.</p></div>
       <div class="feat"><span class="k">Innsikt</span><h3>Se hva som lønner seg</h3><p>Rapporter viser hvilke plagg som er verdt pengene, og hvilke som bare henger.</p></div>
-      <div class="feat"><span class="k">Privat</span><h3>Alt blir på telefonen</h3><p>Ingen konto, ingen sky, ingen sporing. Dataene dine forlater aldri enheten.</p></div>
+      <div class="feat"><span class="k">Privat</span><h3>Alt blir hos deg</h3><p>Ingen konto, ingen sporing. Dataene dine ligger på telefonen og i din egen private iCloud – aldri hos oss.</p></div>
     </section>
 
     <footer class="foot">
@@ -132,7 +134,8 @@
         <div class="eyebrow">Wardrobe · cost per wear</div>
         <h1>Know what your clothes really&nbsp;cost.</h1>
         <p class="sub">Log what you wear, and KPB works out the price of each item every time you use it. The more you wear it, the cheaper it gets.</p>
-        <div class="soon"><span class="dot"></span>Coming soon to the App Store</div>
+        <a class="cta" href="https://apps.apple.com/app/id6796228322">Download on the App Store</a>
+        <p class="cta-note">Free to download · KPB Pro is a one-off purchase, not a subscription</p>
       </div>
       <div class="cpw-card" aria-hidden="true">
         <div class="item">
@@ -148,7 +151,7 @@
     <section class="features">
       <div class="feat"><span class="k">Log</span><h3>One tap a day</h3><p>Note today's outfit in seconds. KPB builds the history for you.</p></div>
       <div class="feat"><span class="k">Insight</span><h3>See what pays off</h3><p>Reports show which pieces are worth the money — and which just hang there.</p></div>
-      <div class="feat"><span class="k">Private</span><h3>It all stays on your phone</h3><p>No account, no cloud, no tracking. Your data never leaves the device.</p></div>
+      <div class="feat"><span class="k">Private</span><h3>It all stays with you</h3><p>No account, no tracking. Your data lives on your phone and in your own private iCloud — never with us.</p></div>
     </section>
 
     <footer class="foot">
